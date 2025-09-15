@@ -1,4 +1,4 @@
-const DATABASE_URL = 'http://10.3.10.98:5000';
+const DATABASE_URL = 'http://localhost:5000';
 
 export async function getLayoutData() {
     const response = await fetch(`${DATABASE_URL}/layout-data`);
@@ -88,5 +88,35 @@ export async function getLayoutData() {
     return response.json();
 }
 
-// We will add more functions here later for logging in, saving data, etc.
+export async function saveLayoutData(layoutData) {
+    const response = await fetch(`${DATABASE_URL}/layout-data`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(layoutData)
+    });
+    
+    if (!response.ok) {
+        throw new Error('Failed to save layout data');
+    }
+    
+    return response.json();
+}
+
+export async function loginUser(username, password) {
+    const response = await fetch(`${DATABASE_URL}/login`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password })
+    });
+    
+    if (!response.ok) {
+        throw new Error('Login failed');
+    }
+    
+    return response.json();
+}
 

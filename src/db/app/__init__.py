@@ -1,13 +1,11 @@
 from flask import Flask
 from flask_cors import CORS
-from flask_socketio import SocketIO
 from flask_jwt_extended import JWTManager
 import os
 
 # Initialize extensions but don't configure them yet
 cors = CORS()
 jwt = JWTManager()
-socketio = SocketIO()
 
 def create_app():
     """Application Factory Function"""
@@ -21,7 +19,6 @@ def create_app():
     # --- Initialize Extensions with the App ---
     cors.init_app(app, resources={r"/*": {"origins": "*"}})
     jwt.init_app(app)
-    socketio.init_app(app, cors_allowed_origins="*")
 
     # --- Database ---
     from . import database
@@ -33,8 +30,4 @@ def create_app():
     app.register_blueprint(layout.bp)
     app.register_blueprint(users.bp)
     
-    # --- Register SocketIO Events ---
-    from . import sockets
-    sockets.register_sockets(socketio)
-
     return app
