@@ -13,68 +13,11 @@ export async function getLayoutData() {
                     w: 8,
                     h: 6,
                     occupant: 'John Smith',
-                    department: 'Engineering',
+                    breaks: '10:30, 15:00',
+                    department: 'Re-Engagement',
+                    sales: '0',
+                    teamLead: 'Jane Doe',
                     color: '#3b82f6'
-                },
-                {
-                    id: 2,
-                    x: 40,
-                    y: 30,
-                    w: 8,
-                    h: 6,
-                    occupant: 'Sarah Johnson',
-                    department: 'Design',
-                    color: '#10b981'
-                },
-                {
-                    id: 3,
-                    x: 60,
-                    y: 30,
-                    w: 8,
-                    h: 6,
-                    occupant: 'Vacant',
-                    department: 'Available',
-                    color: '#a0aec0'
-                },
-                {
-                    id: 4,
-                    x: 80,
-                    y: 30,
-                    w: 8,
-                    h: 6,
-                    occupant: 'Mike Chen',
-                    department: 'Marketing',
-                    color: '#f59e0b'
-                },
-                {
-                    id: 5,
-                    x: 30,
-                    y: 60,
-                    w: 8,
-                    h: 6,
-                    occupant: 'Lisa Wong',
-                    department: 'HR',
-                    color: '#ec4899'
-                },
-                {
-                    id: 6,
-                    x: 50,
-                    y: 60,
-                    w: 8,
-                    h: 6,
-                    occupant: 'Vacant',
-                    department: 'Available',
-                    color: '#a0aec0'
-                },
-                {
-                    id: 7,
-                    x: 70,
-                    y: 60,
-                    w: 8,
-                    h: 6,
-                    occupant: 'David Park',
-                    department: 'Sales',
-                    color: '#8b5cf6'
                 }
             ],
             darkMode: false,
