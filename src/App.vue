@@ -3,6 +3,7 @@ import { onMounted } from 'vue';
 import { useLayoutStore } from './stores/layout';
 import AppHeader from './components/AppHeader.vue';
 import DeskLayout from './components/DeskLayout.vue';
+import DeskEditor from './components/DeskEditor.vue';
 
 // Access the Pinia store
 const layoutStore = useLayoutStore();
@@ -21,7 +22,7 @@ onMounted(() => {
       <DeskLayout />
     </div>
 
-    <!-- Modals will be added here later -->
+    <DeskEditor />
   </div>
 </template>
 
