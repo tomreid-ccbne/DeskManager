@@ -1,4 +1,4 @@
-const DATABASE_URL = 'http://localhost:5000';
+const DATABASE_URL = 'http://10.3.10.98:5000';
 
 export async function getLayoutData() {
     const response = await fetch(`${DATABASE_URL}/layout-data`);
