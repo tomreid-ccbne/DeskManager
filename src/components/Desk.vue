@@ -28,12 +28,12 @@ const deskStyle = computed(() => ({
 }));
 
 const classNames = computed(() => [
-  'desk', 'absolute', 'p-2', 'flex', 'flex-col', 'items-center', 'justify-center', 'border-2', 'rounded-lg', 'transition-all', 'duration-200', 'has-tooltip', 'select-none',
+  'desk', 'absolute', 'p-3', 'flex', 'flex-col', 'items-center', 'justify-center', 'border-2', 'rounded-xl', 'transition-all', 'duration-300', 'has-tooltip', 'select-none', 'shadow-lg',
   { 
     'vacant': isVacant.value,
-    'shadow-lg border-gray-400 dark:border-gray-500': !isVacant.value,
-    'ring-4 ring-blue-400 ring-opacity-50 scale-105': isSelected.value,
-    'hover:scale-105': layoutStore.isEditMode && !isSelected.value,
+    'border-white/30 backdrop-blur-sm': !isVacant.value,
+    'ring-4 ring-blue-400 ring-opacity-75 scale-110 shadow-2xl': isSelected.value,
+    'hover:scale-105 cursor-pointer': layoutStore.isEditMode && !isSelected.value,
   }
 ]);
 
@@ -95,20 +95,21 @@ function handleMouseUp() {
     @mousedown="handleMouseDown"
   >
     <div class="text-center pointer-events-none w-full">
-      <svg class="w-1/3 h-1/3 mx-auto" :class="isVacant ? 'text-gray-500 dark:text-gray-400' : 'text-white'" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+      <svg class="w-8 h-8 mx-auto mb-2" :class="isVacant ? 'text-gray-500 dark:text-gray-400' : 'text-white'" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2z" />
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 21l4-4 4 4" />
       </svg>
-      <p class="text-sm font-semibold mt-2 truncate w-full" :class="isVacant ? 'text-gray-600 dark:text-gray-400' : 'text-white'">
+      <p class="text-xs font-semibold truncate w-full" :class="isVacant ? 'text-gray-600 dark:text-gray-400' : 'text-white'">
         {{ desk.occupant || 'Vacant' }}
       </p>
     </div>
     
     <div 
       v-if="!layoutStore.isEditMode"
-      class="tooltip absolute bottom-full mb-2 w-48 bg-gray-800 dark:bg-black text-white text-xs rounded-lg py-2 px-3 shadow-lg z-10 pointer-events-none"
+      class="tooltip absolute bottom-full mb-3 w-48 glassmorphism text-gray-800 dark:text-white text-xs rounded-xl py-3 px-4 shadow-xl z-10 pointer-events-none border border-white/20"
     >
       <p class="font-bold">{{ desk.occupant || 'Vacant' }}</p>
-      <p>{{ desk.department }}</p>
+      <p class="text-gray-600 dark:text-gray-300">{{ desk.department }}</p>
     </div>
   </div>
 </template>
