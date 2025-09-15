@@ -17,7 +17,11 @@ def create_app():
     app.config["DATABASE"] = DB_FILE
 
     # --- Initialize Extensions with the App ---
-    cors.init_app(app, resources={r"/*": {"origins": "*"}})
+    cors.init_app(app, 
+        resources={r"/*": {"origins": "*"}}, 
+        supports_credentials=True, 
+        allow_headers=['Content-Type', 'Authorization']
+    )
     jwt.init_app(app)
 
     # --- Database ---
